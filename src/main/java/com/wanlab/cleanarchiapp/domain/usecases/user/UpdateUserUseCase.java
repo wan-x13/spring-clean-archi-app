@@ -33,9 +33,15 @@ public class UpdateUserUseCase {
                 throw new ConflictException("Username already exists");
             }
         }
+        if(user.getEmail() != null){
+            user1.setEmail(user.getEmail());
+        }
+        if(user.getUsername() != null){
+            user1.setUsername(user.getUsername());
+        }
         if(user.getPassword() != null){
             user1.setPassword(user.getPassword());
         }
-        return userRepositoryPort.update(id , user);
+        return userRepositoryPort.update(id , user1);
     }
 }

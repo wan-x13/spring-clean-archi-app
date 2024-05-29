@@ -23,6 +23,7 @@ public class CreateUserUseCase {
         if(userRepositoryPort.findByEmail(user.getEmail()).isPresent()){
             throw new ConflictException("Email already exists");
         }
+
         return userRepositoryPort.save(user);
     }
 }
